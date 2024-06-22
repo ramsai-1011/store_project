@@ -25,3 +25,4 @@ def add_products(dat:Products_schema,db:Session = Depends(get_db)):
     db.commit()
     db.refresh(db_user)
     return db_user
+
