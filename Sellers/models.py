@@ -3,13 +3,11 @@ from sqlalchemy.orm import relationship
 from database_config import Base
 
 
-class Products_model(Base):
-    __tablename__ = "users"
+class Sellers_model(Base):
+    __tablename__ = "Sellers"
     unique_id = Column(Integer,autoincrement='auto',unique=True)
     id = Column(Integer, primary_key=True,unique=True)
-    P_details = Column(String,index=True)
-    P_cost = Column(String)
-    P_name = Column(String, default=True)
-    #seller_details = relationship("Products",back_populates="")
-
+    UserName = Column(String,unique=True)
+    Password = Column(String)
+    Store_name = Column(String,unique=True)
     #items = relationship("Item", back_populates="owner")
