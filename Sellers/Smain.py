@@ -37,3 +37,16 @@ def delete_user(id:str, db:Session=Depends(get_db)):
     db.delete(db_sellers)
     db.commit()
     return db_sellers
+
+
+@Seller_rout.put('/update_seller')
+def update_seller(id:str,dat:Seller_schemas,db:Session= Depends(get_db)):
+    db_sellers = db.query(Sellers_model).filter(Sellers_model.id == id).first()
+    if not db_sellers:
+        return HTTPException(status_code=status.HTTP_404_NOT_FOUND,details="Users doesn't exits")
+    db_sellers.UserName = dat.UserName
+    db_sellers.Password = dat.Password
+    db_sellers.Store_name = dat.Store_name
+    db.add(db_sellers)
+    db.commit()
+    return db_sellers

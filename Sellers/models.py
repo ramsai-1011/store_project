@@ -1,7 +1,7 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 from database_config import Base
-
+from Products import models
 
 class Sellers_model(Base):
     __tablename__ = "Sellers"
@@ -10,4 +10,5 @@ class Sellers_model(Base):
     UserName = Column(String,unique=True)
     Password = Column(String)
     Store_name = Column(String,unique=True)
+    #products = Column(Integer, ForeignKey("users.id"))
     #items = relationship("Item", back_populates="owner")
