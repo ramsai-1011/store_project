@@ -10,6 +10,9 @@ class Products_model(Base):
     P_details = Column(String,index=True)
     P_cost = Column(String)
     P_name = Column(String, default=True)
-    #seller_details = relationship("Products",back_populates="")
+    seller_id = Column(Integer,ForeignKey("Sellers.id"),nullable=False)
+    seller_details = relationship("Sellers_model",back_populates = "products")
+    
+    
 
     #items = relationship("Item", back_populates="owner")

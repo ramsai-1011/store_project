@@ -6,3 +6,5 @@ class Products_schema(BaseModel):
     P_details:str 
     P_cost :str
     P_name :str
+
+
